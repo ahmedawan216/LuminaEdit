@@ -2,7 +2,7 @@
 -----------------------------------
 
 🚀 Live Demo
-[Link to your GitHub Pages or Netlify URL here]
+https://ahmedawan216.github.io/LuminaEdit/
 -----------------------------------
 
 A high-performance, browser-based image editing application built with React and the HTML5 Canvas API. LuminaEdit allows users to upload photos and apply complex visual effects instantly through a hardware-accelerated rendering engine.
