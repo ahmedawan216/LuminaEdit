@@ -1,16 +1,41 @@
-# React + Vite
+📸 LuminaEdit: Real-Time Image Filter Engine
+-----------------------------------
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🚀 Live Demo
+[Link to your GitHub Pages or Netlify URL here]
+-----------------------------------
 
-Currently, two official plugins are available:
+A high-performance, browser-based image editing application built with React and the HTML5 Canvas API. LuminaEdit allows users to upload photos and apply complex visual effects instantly through a hardware-accelerated rendering engine.
+-----------------------------------
+✨ Features
+Non-Destructive Editing: High-resolution original images are preserved in memory using useRef, allowing for infinite adjustments without quality loss.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+9 Professional Filters: Precise control over Brightness, Contrast, Saturation (Saturate), Hue-Rotate, Blur, Grayscale, Sepia, Opacity, and Invert.
 
-## React Compiler
+Instant Export: High-quality .jpg download functionality using canvas-to-data-URL conversion.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+One-Tap Reset: Quickly revert all settings to their default "clean" state.
 
-## Expanding the ESLint configuration
+Fully Responsive: Styled with Tailwind CSS for a sleek, dark-mode experience that works across all screen sizes.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+🛠️ Technical Challenges & Solutions
+1. The Canvas "Stacking" Problem
+Challenge: Initially, applying a new filter would draw the image on top of the previous one, leading to "ghosting" and performance lag.
+Solution: Implemented a strict Clear-and-Redraw lifecycle. Using ctx.clearRect(), the canvas is wiped entirely before the updated ctx.filter string is applied and the image is redrawn.
+
+2. State-to-CSS Mapping
+Challenge: React state keys use camelCase (e.g., hueRotate), while CSS filters require kebab-case (e.g., hue-rotate).
+Solution: Developed a dynamic regex parser: name.replace(/([A-Z])/g, "-$1").toLowerCase(). This ensures the UI state perfectly communicates with the browser's rendering engine.
+
+3. File Pathing & Deployment
+Challenge: Handling asset resolution for portfolio integration and production builds.
+Solution: Configured absolute and relative pathing to ensure the frontend compiles correctly even when nested within a larger portfolio structure.
+
+🏗️ Built With: 
+React.js - UI Component logic and state management.
+
+HTML5 Canvas API - Core rendering and image processing.
+
+Tailwind CSS - Modern, utility-first styling.
+
+Lucide React - Iconography for a professional look.
